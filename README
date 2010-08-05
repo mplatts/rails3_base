@@ -51,8 +51,6 @@ end
 
 => bundle install
 
-gem "rails3-generators", :git  => "git://github.com/indirect/rails3-generators.git"
-
 #set rails to use rspec --------------------------------
 go to application.rb
 
@@ -62,9 +60,11 @@ go to application.rb
     g.fixture_replacement :factory_girl, :dir => "spec/factories"
   end
 
-#install cucumber and rspec ---------------------------------
+#install cucumber and rspec and compass---------------------------------
 $ rails g cucumber:install --rspec --capybara
 $ rails g rspec:install
+$ compass init rails . --using blueprint/semantic
+
 
 # go to spec/spec_helper.rb 
 

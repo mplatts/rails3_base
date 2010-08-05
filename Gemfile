@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'pg'
 gem 'haml'
-gem 'compass'
+gem "compass", ">= 0.10.3"
 
 # Cucumber on Rails 3 http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc
 
