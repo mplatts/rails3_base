@@ -26,6 +26,7 @@ $ git remote add origin <your-newly-created-git-repo>
 $ git push origin master
 $ heroku create
 $ git push heroku master
+$ heroku stack:migrate bamboo-mri-1.9.1
 
 If you are getting errors with public key
 $ heroku keys:add ~/.ssh/id_rsa.pub
