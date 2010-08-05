@@ -135,7 +135,7 @@ PLATFORMS
 DEPENDENCIES
   autotest
   capybara
-  compass
+  compass (>= 0.10.3)
   cucumber
   cucumber-rails
   database_cleaner
