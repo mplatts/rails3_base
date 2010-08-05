@@ -80,3 +80,7 @@ require 'capybara/dsl'
   config.before(:each) do
     init_haml_helpers
   end
+
+# weird thing that kept telling me to do this when I ran server
+# add to config/environments/development.rb:
+config.active_support.deprecation = :log
