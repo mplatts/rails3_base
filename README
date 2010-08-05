@@ -1,4 +1,37 @@
-This is a base application for rails 3. 
+This is a base application for rails 3.
+
+To Install and Deploy
+1. Pull
+$ git clone git@github.com:mplatts/rails3_base.git
+
+2. Rename App
+Places to change name (look for "Rails3Base"):
+- root folder name
+- config/environments/test.rb
+- config/environments/development.rb
+- config/environments/production.rb
+- config/environment.rb
+- config/application.rb
+- config/routes.rb
+- config.ru
+
+3. Setup DB
+- edit database.yml
+$ rake db:create
+
+4. Github and Deploy
+$ git add .
+$ git commit -m 'first commit'
+$ git remote add origin <your-newly-created-git-repo>
+$ git push origin master
+$ heroku create
+$ git push heroku master
+
+If you are getting errors with public key
+$ heroku keys:add ~/.ssh/id_rsa.pub
+
+5. Edit and Push over and over
+Basically repeat step 4 when you add your new code - eg every hour or whatever
 
 *Gems*
 Views
