@@ -1,7 +1,5 @@
 This is a base application for rails 3. 
 
-While not complete yet, it will eventually contain the following:
-
 *Gems*
 Views
 - Haml
@@ -23,3 +21,62 @@ It is made to be hosted on Heroku
   - go here for tips on linux "https://help.ubuntu.com/community/PostgreSQL"
 - Sass in app/stylesheets works on Heroku thanks to the particular Hassle branch
 
+
+
+*Steps I performed to make this base app:*
+$ rails new <appname> --skip-testunit
+
+# gemfile---------------------------------
+
+source 'http://rubygems.org'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'pg'
+gem 'mysql'
+gem 'haml'
+gem 'compass'
+
+# Cucumber on Rails 3 http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc
+
+group :test do
+  gem "rspec-rails", ">= 2.0.0.beta.17"
+  gem "factory_girl_rails"
+  gem 'autotest'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'
+end
+
+=> bundle install
+
+gem "rails3-generators", :git  => "git://github.com/indirect/rails3-generators.git"
+
+#set rails to use rspec --------------------------------
+go to application.rb
+
+  config.generators do |g|
+    g.template_engine :haml
+    g.test_framework :rspec, :fixture => true, :views => false
+    g.fixture_replacement :factory_girl, :dir => "spec/factories"
+  end
+
+#install cucumber and rspec ---------------------------------
+$ rails g cucumber:install --rspec --capybara
+$ rails g rspec:install
+
+# go to spec/spec_helper.rb 
+
+# up the top
+require 'capybara/rails'
+require 'capybara/dsl' 
+
+# and add after config
+
+  config.include(Capybara, :type => :integration) 
+  config.include Haml::Helpers
+  config.include ActionView::Helpers
+  config.before(:each) do
+    init_haml_helpers
+  end
