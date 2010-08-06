@@ -5,10 +5,11 @@ gem 'pg'
 gem 'haml'
 gem "compass", ">= 0.10.3"
 
-# Cucumber on Rails 3 http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc
+group :development do
+  gem "rspec-rails", ">= 2.0.0.beta.1" # have to do this so rake spec works...
+end
 
 group :test do
-  gem "rspec-rails", ">= 2.0.0.beta.1"
   gem "factory_girl_rails"
   gem 'autotest'
   gem 'capybara'
